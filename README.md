@@ -5,26 +5,29 @@ A Node.js and Express-based backend for managing books, users, and transactions 
 and workflows for book borrowing and return.
 
 
-├── src/  
-│   ├── Modules/  
-│   │   ├── User/  
-│   │   │   └── Services (register, login, profile)  
-│   │   ├── Book/  
-│   │   │   ├── Controllers (add, update, delete, search, borrow, return)  
-│   │   │   └── Services (Book model + Joi validation)  
-│   │   └── Transaction/  
-│   │       └── Controllers (tracking borrow and return)  
-├── DB/  
-│   └── Models/  
-│       ├── user.model.js  
-│       ├── book.model.js  
-│       └── transaction.model.js  
-├── utils/  
-│   └── tokens.utils.js (JWT generation/verification)  
-├── index.js (App entry point: Express setup, routes, DB connection)  
-├── .env.example (Explains required environment variables)  
-└── package.json  
-  
+LibraryManagementSystem/
+├── src/
+│   ├── Modules/
+│   │   ├── User/                         # User-related functionality
+│   │   │   └── Services/                  # User services (register, login, profile)
+│   │   ├── Book/                         # Book management
+│   │   │   ├── Controllers/               # Add, update, delete, search, borrow, return
+│   │   │   └── Services/                   # Book model & Joi validation
+│   │   └── Transaction/                   # Borrow/return tracking
+│   │       └── Controllers/
+│
+├── DB/
+│   └── Models/                            # Mongoose models
+│       ├── user.model.js
+│       ├── book.model.js
+│       └── transaction.model.js
+│
+├── utils/
+│   └── tokens.utils.js                    # JWT generation & verification
+│
+├── index.js                               # App entry point (Express, routes, DB connection)
+├── .env.example                           # Environment variable configuration
+└── package.json                           # Project dependencies & scripts
 
 
 ---
