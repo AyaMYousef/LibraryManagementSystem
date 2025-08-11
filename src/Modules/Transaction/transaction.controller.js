@@ -7,6 +7,8 @@ const transactionRouter = Router();
 
 transactionRouter.post("/borrow", authMiddleware, TR.borrowBook);
 
+transactionRouter.post("/returnBook", authMiddleware, TR.returnBook);
+
 
 
 export default transactionRouter;
