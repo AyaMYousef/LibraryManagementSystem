@@ -9,6 +9,6 @@ transactionRouter.post("/borrow", authMiddleware, TR.borrowBook);
 
 transactionRouter.post("/returnBook", authMiddleware, TR.returnBook);
 
-
+transactionRouter.get("/listTransactions", authMiddleware, TR.listTransactions);
 
 export default transactionRouter;

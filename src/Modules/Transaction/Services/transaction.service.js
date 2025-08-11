@@ -14,15 +14,15 @@ export const borrowBook = async (req, res) => {
         })
 
         const { error } = schema.validate(req.body)
-        if (error) 
+        if (error)
             return res.status(400).json({ message: error.message })
 
         const { userId, bookId } = req.body
         const book = await Book.findById(bookId)
-        if (!book) 
+        if (!book)
             return res.status(404).json({ message: "Book Not Found" })
         if (book.availableCopies < 1)
-             return res.status(400).json({ message: "No Copies Available" })
+            return res.status(400).json({ message: "No Copies Available" })
 
         const transaction = await Transaction.create({
             userId,
@@ -40,28 +40,25 @@ export const borrowBook = async (req, res) => {
     }
 };
 
-/**Create a route to return a book ( ): Update transaction with returnDate and status 'returned'.
-Increment book's availableCopies.
-Protect route with JWT authentication. */
 
-export const returnBook = async (req,res)=>{
-    try{
-        const {userId, bookId} = req.body
+export const returnBook = async (req, res) => {
+    try {
+        const { userId, bookId } = req.body
 
         const book = await Book.findById(bookId)
 
-        if(!book)
-            return res.status(404).json({message:"Book Not Found"})
+        if (!book)
+            return res.status(404).json({ message: "Book Not Found" })
 
         const transaction = await Transaction.findOne({
             userId,
             bookId,
-            status:'borrowed'
+            status: 'borrowed'
         });
-        if (!transaction) 
+        if (!transaction)
             return res.status(404).json({ message: "No borrowed transaction found" });
 
-      
+
         transaction.status = 'returned';
         transaction.returnDate = new Date();
         await transaction.save();
@@ -75,3 +72,7 @@ export const returnBook = async (req,res)=>{
     }
 };
 
+export const listTransactions = async (req, res) => {
+    let transactions = await Transaction.find();
+    res.status(200).json({ transactions })
+};
