@@ -1,5 +1,8 @@
-Library Management System
-A Node.js and Express-based backend for managing books, users, and transactions in a library. Features include secure user authentication, role-based access control, and book borrowing/return workflows.
+
+# Library Management System
+
+A Node.js and Express-based backend for managing books, users, and transactions in a library. Features include secure user authentication, role-based access control, 
+and workflows for book borrowing and return.
 
 
 ├── src/  
@@ -22,8 +25,6 @@ A Node.js and Express-based backend for managing books, users, and transactions 
 ├── .env.example (Explains required environment variables)  
 └── package.json  
 
-
-Sure thing! Here's a polished **README** for your Library Management System, based on the structure revealed from your repository:
 
 ---
 
