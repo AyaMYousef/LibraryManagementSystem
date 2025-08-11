@@ -8,5 +8,8 @@ const bookRouter = Router();
 
 
 bookRouter.post("/add", authMiddleware, BR.addBook);
+bookRouter.get("/listBooks", BR.listBooks);
+bookRouter.put("/updateBook/:id", authMiddleware, BR.UpdateBook);
+bookRouter.delete("/deletebook/:id", authMiddleware, BR.deleteBook)
 
 export default bookRouter;
